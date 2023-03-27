@@ -6,9 +6,12 @@ include('../includes/headall.php'); ?>
     <div class="main">
     <?php include('../includes/sidebarnav.php'); ?>
     <div class="main-content">
-<?php include('../includes/nav.php');
+        <div class="nav">
+            <h3>Profile</h3>
+        </div>
+<?php 
 
-    include('../includes/postHome.php') ?>
+    include('allPosts.php') ?>
     </div>
 
 <?php include('../includes/leftbar.php') ;?>

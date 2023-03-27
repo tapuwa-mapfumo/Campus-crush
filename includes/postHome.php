@@ -5,7 +5,7 @@
             <h2>What do you wanna Post about</h2>
             <span class="close-btn"  id="closebtn_postchoice">X</span>
             <div class="select-post-type" >
-               <p id="hot_con"> I got a HOT Conf <span class="dot" id="hotC_span"></span></p>
+               <p id="hot_con"> I got a HOT Conf <button class="dot" id="hotC_span"></button></p>
                 <div id="post_formHC" class="post_formHC">
                     <div class="input-form">
                         <textarea name="hotConfession" placeholder="wtf did u do this time kkkkkkkk...."  id="textarea_Post"></textarea>
@@ -18,7 +18,7 @@
             </div>
             <div class="select-post-type">
                 <p id="C_con">
-                   I want H & C <span class="dot" id="CC_span"></span> 
+                   I want H & C <button class="dot" id="CC_span"></button> 
                 </p>
                 
                 <div class="post_formHC" id="post_formCC">

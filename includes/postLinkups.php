@@ -3,7 +3,8 @@
     <div class="post_head">
             <div class="select-post-type">
                 <p id="C_con">
-                   Link up? <span class="dot" id="CC_span"></span> 
+                  Link up?  
+                    <button class="dot" id="CC_span"></button> 
                 </p>
                 
                 <div class="post_linkups" id="post_linkups">

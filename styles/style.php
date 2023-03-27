@@ -14,7 +14,7 @@ body{
 .nav-a{
    
     display: flex;
-    min-width: 150px;
+    min-width: 160px;
 }
 a{
      color: inherit;
@@ -127,7 +127,7 @@ a{
     border-bottom: 2px solid darkorchid;
 }
 .posts{
-   
+    padding: 10px 20%; 
     width: 100%;  
    height: 91%;
   
@@ -135,24 +135,21 @@ a{
 .con_form{
     padding: 20px;
     background-color: #1d1c1c;
-    width: 400px;
-    position: relative;
-    left: 24%;
+    max-width: 550px;
     margin-top: 10px;
+    min-width: 260px;
     border-radius: 6px;
 }
 .con_form span{
     box-shadow: 1px 3px 3px 0px black;
     padding: 16px;
     border-radius: 54px;
-    margin-left: -92px;
     margin-right: 22px;
-    
     background-color: #3a3938e1;
 }
 .con_form input{
     font-size: 20px;
-    max-width: 60%;
+    max-width: 100%;
     padding: 8px;
     border-radius: 32px;
     border: none;
@@ -162,12 +159,11 @@ a{
 
 }
 .post-container{
-    box-shadow: 2px 6px 5px 0px rgb(29, 28, 28);
+    box-shadow: 2px 6px 10px 0px rgb(29, 28, 28);
     background-color: #201f1f;
     height: 410px;
-    max-width: 400px;
-    position: relative;
-    left: 24%;
+    max-width: 550px;
+    min-width: 260px;
     margin-top: 16px;
     border-radius: 8px;
   margin-bottom: 20px;
@@ -175,8 +171,7 @@ a{
     
    }
 .post-container:hover{
-   transform: scale(1.01);
-   transition: 0.3s ease;
+    box-shadow: 2px 6px 14px 0px rgb(29, 28, 18);
 }
 .post-box{
     background: #313131;
@@ -196,6 +191,7 @@ a{
 }
 .post_head div:hover{
     background-color: #242323;
+    
 }
 .heading-post{
     flex: 1;
@@ -235,7 +231,7 @@ border-radius: 43px;
     border-radius: 32px;
     border: none;
     outline: none;
-    width: 300px;
+    width: 90%;
     margin-left: 20px;
     font-weight: 600;
     cursor: pointer;
@@ -267,7 +263,7 @@ border-radius: 43px;
     height: 0;
     width: 0;
     top: 100px;
-    margin-left: -220px;
+    
     border-radius: 8px;
     box-shadow: 0px 3px 3px 0px black;
     padding: 12px;
@@ -282,7 +278,7 @@ border-radius: 43px;
     display: inline-block;
     visibility: visible;
     height: auto;
-    width: 600px;
+    width: 30%;
 }
 .input-form{
     padding: 12px;
@@ -301,7 +297,7 @@ border-radius: 43px;
 .post-choice button:hover{
     background-color: #640564;
     transition: 0.3s ease-in-out;
-    transform: scale(1.04);
+    transform: scale(1.02);
 }
 .input-form textarea{
     border-radius: 6px;
@@ -311,7 +307,7 @@ border-radius: 43px;
     padding: 12px;
     resize: none;
     min-height: 80px;
-    min-width: 500px;
+    max-width: 100%;
     font-size: 22px;
 
 }
@@ -333,25 +329,24 @@ border-radius: 43px;
 }
 .post-choice .select-post-type:hover{
     background-color: #252323;
+    
 }
 .post-choice small{
     margin-bottom: 10px;
 }
 .post-choice .dot{
     margin-top: 10px;
-    padding:8px;
-    position:absolute;
-    left: 550px;
+    padding:1px;
     border-radius: 43px;
     backdrop-filter: blur(4px);
     border: 1px solid rgb(20, 20, 20);
     box-shadow: 0px 1px 3px 0px blueviolet;
+    background-color: #fff;
 }
 .post_head .dot{
     margin-top: 10px;
-    padding:6px;
-    position:absolute;
-    left: 420px;
+    padding:1px;
+    width: 100%;
     border-radius: 43px;
     backdrop-filter: blur(4px);
     border: 1px solid rgb(20, 20, 20);
@@ -362,10 +357,10 @@ border-radius: 43px;
 }
 .close-btn{
     position: relative;
-    left: 45%;
-    top: -10px;
+    left: 50%;
+    top: -60px;
     padding: 18px;
-    background-color: #2c2a2a;
+    backdrop-filter: blur(42px);
     border-radius: 44px;
     cursor: pointer;
     box-shadow: 0px 3px 3px 0px black;
@@ -601,21 +596,16 @@ border-radius: 43px;
     .sidebar-nav{
         display: none;
     }
-    .post-container{
-       left: 15%;
-    }
+    
     .post-choice-active{
-        width: 100%;
-        left: 50%;
-        right: 50%;
+        width: 60%;
+        left: 20%;
+       
     }
     .input-form textarea{
         min-width: 20px;
     }
-    .close-btn{
-        left: -35%;
-        top: -40px;
-    }
+    
     .post-choice .dot{
         left: 110%;
     }
