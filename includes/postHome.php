@@ -1,6 +1,19 @@
 <div class="posts">
     <div class="con_form">
-      <span>P</span>  <input type="text" placeholder="What's on Your Mind" id="post_choice">
+      <div class='conform_desgn_head'>
+        <div>
+            <button></button>
+        </div>
+        <div>
+            <span>P</span>
+        </div>
+        <div>
+            <button></button>
+        </div>
+      </div>
+         
+      
+      <button  id="post_choice">What's on Your Mind @<?= $username ?></button>
         <div class="post-choice ">
             <h2>What do you wanna Post about</h2>
             <span class="close-btn"  id="closebtn_postchoice">X</span>

@@ -146,10 +146,14 @@ a{
     border-radius: 54px;
     margin-right: 22px;
     background-color: #3a3938e1;
+    cursor: pointer;
 }
-.con_form input{
+.con_form span:hover{
+    box-shadow: 1px 3px 3px 0px #8b078b;
+}
+.con_form button{
     font-size: 20px;
-    max-width: 100%;
+    width:100%;
     padding: 8px;
     border-radius: 32px;
     border: none;
@@ -157,6 +161,18 @@ a{
     cursor: pointer;
     outline: none;
 
+}
+.conform_desgn_head{
+    display: grid;
+    grid-template-columns: 45% 10% 45%;
+}
+.conform_desgn_head button{
+    width: 100%;
+    position: relative;
+    top: -10px;
+    padding: 2px;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px 0px #8b078b;
 }
 .post-container{
     box-shadow: 2px 6px 10px 0px rgb(29, 28, 28);
@@ -572,6 +588,12 @@ border-radius: 43px;
 }
 .profile-menue-active{
     display: block;
+}
+.errormsg{
+    text-align: center;
+    color: red;
+    margin-top: -110px;
+    position: absolute;
 }
 /* Responcive Design*/
 
