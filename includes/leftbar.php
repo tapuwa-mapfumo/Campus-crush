@@ -3,7 +3,7 @@
             <!-- When user is not signed in -->
             <?php  
                 if(!isset($_SESSION['user_id'])){ ?>
-                        <div class="icons"> 
+                    `<div class="icons"> 
                         <div class="profile" id='loginBtn'>
                             Log in
                         </div>
@@ -106,19 +106,28 @@
                              <div class="profile-menue" id ='prof_menu'>
                                 <a href="../userProfile/profileUserCurrent.php">
                                 <div class="profife_view">
-                                     <div>
+                                     <div class='div'>
                                          <span>P </span> View Profile
                                      </div>                 
                                  </div>
                                 </a>
-                                 <div>
+                                 <div class='div'>
                                      Settings
                                  </div>
-                                 <div>
+                                 <div class='div'>
                                      Log in to another account
                                  </div>
-                                 <div>
+                                 <div class='div' id='logoutBtn'>
                                      Log out
+                                 </div>
+                                 <div class="logout_confirm">
+                                    <p>Confirm LogOut</p>
+                                    <div>
+                                        <form action="../classes_incs/log-out.inc.php">
+                                           <button class='yes'>Yes</button> 
+                                        </form>
+                                        <button class='no' id='noBtn'>No</button>
+                                    </div>
                                  </div>
                              </div>
                           </div>
@@ -127,11 +136,21 @@
          
         <script>
              const prof_menuBtn = document.querySelector('#prof_menuBtn');
-  const prof_menue = document.querySelector('#prof_menu');
+             const prof_menue = document.querySelector('#prof_menu');
 
-  prof_menuBtn.addEventListener('click', function(){
-    prof_menue.classList.toggle('profile-menue-active');
-  })
+             prof_menuBtn.addEventListener('click', function(){
+              prof_menue.classList.toggle('profile-menue-active');
+             })
+             const logout_confirm =document.querySelector('.logout_confirm');
+             const logoutBtn = document.querySelector('#logoutBtn');
+             logoutBtn.addEventListener('click', function(){
+                logout_confirm.classList.toggle('logout_confirm-active');
+             })
+             const noBtn = document.querySelector('#noBtn');
+             noBtn.addEventListener('click', function(){
+                logout_confirm.classList.remove('logout_confirm-active');
+             })
+
         </script>
            
          <!-- //when user is signe in -->  

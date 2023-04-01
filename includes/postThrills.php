@@ -1,5 +1,6 @@
 <div class="posts">
     <div class="con_form">
+        <?php if($userLogged){ ?>
     <div class="post_head">
             <div class="select-post-type">
                 <p id="C_con">
@@ -11,6 +12,10 @@
                     <form action="#">
                     <div class="input-form-linkups">
                         <textarea name="hotConfession" placeholder="Was it dangerous?...." id="textarea_Post"></textarea>
+                        <div>
+                        <input type="text" placeholder='#Topic' name='topic'>
+                        <input type="text" placeholder='@YourGeneralLocation' name='location'>                        
+                        </div>
                     </div>
                     <div>
                         <button type="submit" id="post_btn">Post</button>
@@ -21,6 +26,7 @@
             </div>   
             <small id='privacy_msg' class='privacy_msg'>Don Worry You got all the <a href="#" style="color:blueviolet"> privacy</a> YOU need...No one will ever know who post this</small> 
         </div>
+        <?php } ?>
     </div>
    
     <div class="post-container">

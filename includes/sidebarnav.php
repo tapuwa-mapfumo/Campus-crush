@@ -21,11 +21,13 @@
                         <span></span><span></span><li>Bookmarks</li>
                     </a>
                 </div>
+                <?php if($userLogged){ ?>
                 <div <?php if ($page == 'profile'){ echo 'class="active"';} ?>>
                     <a href="../userProfile/profileUserCurrent.php" class='nav-a'>
                     <span></span><span></span><li>Profile</li> <?php if ($page == 'profile'){ echo '<span></span>';} ?><?php if ($page == 'profile'){ echo '<span></span>';} ?>
                     </a>
                  </div>
+                 <?php } ?>
              
             </ul>
         </nav>

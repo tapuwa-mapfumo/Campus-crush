@@ -209,6 +209,15 @@ a{
     background-color: #242323;
     
 }
+.post_head .input-form-linkups input{
+    padding: 12px;
+    border-radius: 6px;
+    outline: none;
+    background-color:#2c2d2e ;
+    border: none;
+    margin-right: 10px;
+    margin-top: 10px;
+}
 .heading-post{
     flex: 1;
 }
@@ -314,6 +323,14 @@ border-radius: 43px;
     background-color: #640564;
     transition: 0.3s ease-in-out;
     transform: scale(1.02);
+}.input-form input{
+    padding: 12px;
+    border-radius: 6px;
+    outline: none;
+    background-color:#2c2d2e ;
+    border: none;
+    margin-right: 10px;
+    width: 100%;
 }
 .input-form textarea{
     border-radius: 6px;
@@ -323,9 +340,12 @@ border-radius: 43px;
     padding: 12px;
     resize: none;
     min-height: 80px;
-    max-width: 100%;
+    width: 100%;
     font-size: 22px;
-
+    margin-bottom: 10px;
+}
+.input-form div{
+    display: flex;
 }
 .post_formHC{
     display: none;
@@ -469,6 +489,43 @@ border-radius: 43px;
 .leftbar-container h2{
     margin-left: 12px;
 }
+.logout_confirm{
+    background-color: #0e0d0d;
+    text-align: center;
+    margin-top: 10px;
+    display: none;
+    border-radius: 8px;
+    box-shadow: 0px 3px 5px 0px #050522;
+}
+.logout_confirm button{
+    width: 100%;
+    padding: 12px;
+    margin-right: 10px;
+    font-weight: 600;
+    color: white;
+    border-radius: 8px;
+    border: none;
+    cursor:pointer;
+
+}
+.logout_confirm-active{
+    display: block;
+}
+.logout_confirm .yes{
+    background-color: red;
+}
+.yes:hover,.no:hover{
+    transform: scale(1.1);
+    transition: 0.2s ease;
+}
+.logout_confirm .no{
+    background-color: #313131;
+}
+.logout_confirm div{
+    display: flex;
+
+}
+
 .trends{
     background-color: #292929;
     height: 400px;
@@ -486,10 +543,7 @@ border-radius: 43px;
 .trends p:hover{
     background-color: #383838;
 }
-.trends:hover{
-    transform: scale(1.01);
-    transition: 0.3s ease;
-}
+
 
 .log-in-form{
     position: absolute;
@@ -564,10 +618,11 @@ border-radius: 43px;
 .profile-menue div{
     padding: 8px;
     cursor: pointer;
-    border-radius: 8px;
 }
-.profile-menue div:hover{
-    background-color: #383838;
+.profile-menue .div:hover{
+    background-color: #313131;
+    border-radius: 9px;
+    transition: 0.1s ease;
 }
 .profile-menue .profife_view{
     padding: 18px;
