@@ -3,7 +3,7 @@
             <ul>
                 <div <?php if ($page == 'home'){ echo 'class="active"';} ?>> 
                     <a href="../index/index.php" class='nav-a'> <?php if ($page == 'home'){ echo '<span></span>';} ?>
-                       <span></span><span></span>  <li> Home</li>
+                       <span></span><span></span>  <li>   Home</li>
                     </a>
                 </div>
                 <div <?php if ($page == 'linkups'){ echo 'class="active"';} ?>>

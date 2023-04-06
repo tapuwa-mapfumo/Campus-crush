@@ -1,7 +1,7 @@
 
 //For The Post Head
 const postChoice = document.querySelector('#post_choice');
-const post_choice = document.querySelector('.post-choice');
+const post_choice = document.querySelector('.post-choice-bg');
 const closebtn_postchoice = document.querySelector('#closebtn_postchoice');
 postChoice.addEventListener("click", function(){
     post_choice.classList.toggle('post-choice-active');

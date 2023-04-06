@@ -1,5 +1,9 @@
 <?php 
-$page = 'bookmarks';
+if(isset($_GET['post_id'])){
+    $post_id = $_GET['post_id'];
+    include('phpfiles.post-single.php');
+
+$page = 'postSingle';
 include('../includes/headall.php'); ?>
 
 <body>  
@@ -7,11 +11,11 @@ include('../includes/headall.php'); ?>
     <?php include('../includes/sidebarnav.php'); ?>
     <div class="main-content">
         <div class="nav">
-           <b> Bookmarks </b>
+            <h3>#SinglePost</h3>
         </div>
 <?php 
 
-    include('../includes/postBookmarks.php') ?>
+    include('postsSingle.php') ?>
     </div>
 
 <?php include('../includes/leftbar.php') ;?>
@@ -20,3 +24,4 @@ include('../includes/headall.php'); ?>
     <script src="./Js/script.js"></script>
 </body>
 </html>
+<?php } ?>

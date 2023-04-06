@@ -1,21 +1,18 @@
 <?php
 
-    if(isset($_POST['submit'])){
+    if(isset($_POST['submit_comment'])){
         echo 'progress';
-        $post = $_POST['post'];
-        $topic = $_POST['topic'];
-        $location = $_POST['location'];
+        $post_id = $_POST['post_id'];
+        $comment = $_POST['comment'];
         $user_id =$_POST['user_id'];
         $date = date('Y-m-d H:i:s');
-        $post_type = $_POST['type_post'];
-        $location = $_POST['location'];
         $page = $_POST['page'];
         
         include_once('dbh.class.php');
         $dbh = New Dbh();
-        $sql = "INSERT INTO posts(title,post_body,user_id,date_created,topic,post_type,location) VALUES(?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO comments(post_id,comment,user_id,date_created) VALUES(?,?,?,?)";
         $result = $dbh->connect()->prepare($sql);
-        if($result->execute(array($topic,$post,$user_id,$date,$topic,$post_type,$location))){
+        if($result->execute(array($post_id,$comment,$user_id,$date))){
 
             if($page == 'home'){
                 header("Location: ../index/index.php?secceeded,Page=$page");
@@ -23,7 +20,11 @@
                 header("Location: ../Hot/hots.php?secceeded,Page=$page");
             }elseif($page == 'linkup_page'){
                 header("Location: ../linkups/linkups.php?secceeded,Page=$page");
-            }else{
+            }elseif($page == 'postSingle'){
+            
+                header("Location: ../singlePosts/singleposts.php?post_id=$post_id");
+            }
+            else{
                 header("Location: ../index/index.php?secceeded,Page=$page");
             }
 
