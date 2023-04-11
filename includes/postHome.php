@@ -74,19 +74,28 @@
 
 <!--...............------------------- Now Posting --------------------------------------------------------------->
 
-    <?php foreach($posts as $post){ ?>
+    <?php foreach($posts as $post){ 
+        ?>
         
     
     <div class="post-container">
         <div class="post-head">
             <div class="heading-post">
-             <small>head</small>   
+             <small>Anonymous . <span><?= $post['date_created'] ?></span> </small>   
             </div>
             <div class="head-dots">
                 <div>
                   <small>.</small><small>.</small><small>.</small>   
                 </div>
-               
+               <div class="head-menu">
+               <form action="../classes_incs/bookmarks.inc.php" method='post'>
+                <input type="hidden" name="post_id" value="<?= $post['post_id'] ?>">
+                <input type="hidden" name='user_id' value='<?= $user_id ?>'>
+               <button name="bookmark"> Bookmark Post</button>
+               </form>
+                  
+                <p> Copy Link</p>
+               </div>
             </div>
         </div>
 <div class="post-box">
@@ -111,12 +120,93 @@
     ?>> <?= $post['post_body'] ?></p>
     </a>
 </div>
+<?php if($post['post_type'] =='thrill'){ ?> 
 <div class="comment">
-    <div class="react">
-    <i class='fab fa-facebook'>R</i>
+    <div>
+        <?php
+            $post_id = $post['post_id'];
+            $sql = "SELECT COUNT(*) as total FROM likes WHERE user_id = ? AND post_id = ?;";
+
+            $result = $dbh->connect()->prepare($sql);
+            if(!$result->execute(array($user_id,$post_id))){
+                $result = null;
+                header("location ../index/index.php?error=error");
+                exit();
+            }else{
+                $results = $result->fetch(PDO::FETCH_ASSOC);
+                if($results == 0) { ?>
+
+                <div class="react">
+                    <i class='fab fa-facebook'><?= $results['total'] ?></i>
+                </div>
+            <?php }else{?>
+                <div class="react">
+                <i class='fab fa-facebook'>R</i>
+                </div>
+                <?php }} ?>
+   
+    <div class="react-emojis">
+        <div>
+            <form action="../classes_incs/liking.inc.php" method='post'>
+            <input type="hidden" name='post_id' value='<?= $post['post_id'] ?>'>
+            <input type="hidden" name="user_id" value='<?= $user_id ?>'>
+            <input type="hidden" name="type" value='like'>
+            <button name='submit_like'>like</button>
+            </form>
+        </div>
+        <div>
+        <form action="../classes_incs/liking.inc.php" method='post'>
+            <input type="hidden" name='post_id' value='<?= $post['post_id'] ?>'>
+            <input type="hidden" name="user_id" value='<?= $user_id ?>'>
+            <input type="hidden" name="type" value='love'>
+            <input type="hidden" name="page" value='home'>
+            <button name='submit_like'>love</button>
+            </form>
+        </div>
+        <div>
+        <form action="../classes_incs/liking.inc.php" method='post'>
+            <input type="hidden" name='post_id' value='<?= $post['post_id'] ?>'>
+            <input type="hidden" name="user_id" value='<?= $user_id ?>'>
+            <input type="hidden" name="type" value='funny'>
+            <input type="hidden" name="page" value='home'>
+            <button name='submit_like'>funny</button>
+            </form>
+        </div>
+        <div>
+        <form action="../classes_incs/liking.inc.php" method='post'>
+            <input type="hidden" name='post_id' value='<?= $post['post_id'] ?>'>
+            <input type="hidden" name="user_id" value='<?= $user_id ?>'>
+            <input type="hidden" name="type" value='sad'>
+            <input type="hidden" name="page" value='home'>
+            <button name='submit_like'>sad</button>
+            </form>
+        </div>
+        <div>
+        <form action="../classes_incs/liking.inc.php" method='post'>
+            <input type="hidden" name='post_id' value='<?= $post['post_id'] ?>'>
+            <input type="hidden" name="user_id" value='<?= $user_id ?>'>
+            <input type="hidden" name="type" value='fire'>
+            <input type="hidden" name="page" value='home'>
+            <button name='submit_like'>fire</button>
+            </form>
+        </div>
+    </div>
     </div>
      <div class="comment_in" >
-        <input type="text" placeholder="Reply" id="commentBtn">
+        <?php 
+        $post_id = $post['post_id'];
+             #counting comments
+    $countComments = $dbh->connect()->prepare("SELECT COUNT(*) as total from comments where post_id = ?");
+    if(!$countComments ->execute(array($post_id))){
+        echo 'Failed To Load Posts';
+    }else{
+         $result = $countComments->fetch(PDO::FETCH_ASSOC);
+        $total = $result['total']; 
+    
+    }
+
+        ?>
+        <input type="text" placeholder="Comment (<?= $total ?>)" id="commentBtn">
        <div class='reply-form-bg'id="commentDiv">
        <div class="reply-form" >
             <span class="close-btn" id="close_comment">
@@ -131,23 +221,48 @@
                 @<?=$post['location'] ?> , #<?=$post['topic'] ?> 
                 </div>
             </div>
+            <form action="../classes_incs/postcomments.php" method='post'>
             <div class="input-reply">
                 <div>
                      <span>P</span>
                 </div>
                <div>
-                <textarea name="reply-textarea" id="reply-textarea" placeholder="...wtf"></textarea>
+                <input type="hidden" name='post_id' value='<?= $post['post_id'] ?>'>
+                <input type="hidden" name='user_id' value='<?= $post['user_id'] ?>'>
+                <input type="hidden" name='page' value='<?= $page ?>'>
+                <textarea name="comment" id="reply-textarea" placeholder="...whats your view"></textarea>
                </div>
                 <div>
-                    <button>Reply</button>
-                </div>
-                
+                    <button name="submit_comment">Reply</button>
+                </div>            
             </div>
+            </form>
         </div>
        </div>
        
     </div> 
 </div>
+<?php } else {?>
+    <div class="comment">
+    <div>
+        <div class="react">
+    <i class='fab fa-facebook'>R</i>
+    </div>
+    <div class="react-emojis">
+        <div>like</div><div>love</div><div>funny</div><div>sad</div><div>fire</div>
+    </div>
+    </div>
+         <div class="comment_in">
+         <button class='btn_reply' id="commentBtn" style="color:aliceblue">Lets Deal</button>
+        </div> 
+    </div>
+    <div class="deal-input">
+        <form action="#">
+            <textarea type="text" name="deal" id="deal" placeholder='Are you/is this still available...'></textarea> <button>Send</button>
+        </form>
+    </div>
+
+    <?php } ?>
     </div>
     <script >
     
@@ -221,6 +336,18 @@ textarea_Post.addEventListener('input', function() {
   
   });
   
+
+  const react =document.querySelector('.react');
+  const react_emojis=document.querySelector('.react-emojis');
+  react.addEventListener('click', () => {
+    react_emojis.classList.toggle('react-emojis-active');
+  })
+
+  const head_dots =document.querySelector('.head-dots');
+  const head_menu =document.querySelector('.head-menu');
+  head_dots.addEventListener('click',() =>{
+    head_menu.classList.toggle('head-menu-active');
+  })
 
 </script>
     <?php } ?> 

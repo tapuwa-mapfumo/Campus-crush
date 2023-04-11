@@ -73,3 +73,13 @@
         $posts_User_linkups = $selectUserPosts_Linkups->fetchAll(PDO::FETCH_ASSOC);
     }
     #//-------------------------------------------------------------------\\##
+
+     ##-------------------Posts for All, HomePage--------------------------------------##
+     $selectAllPosts = $dbh->connect()->prepare("SELECT * FROM posts 
+            JOIN bookmarks ON bookmarks.post_id = posts.post_id WHERE  bookmarks.user_id =?  ORDER BY date_created DESC");
+     if(!$selectAllPosts ->execute(array($user_id))){
+         echo 'Failed To Load Posts';
+     }else{
+         $posts_B = $selectAllPosts->fetchAll(PDO::FETCH_ASSOC);
+     }
+     #//-------------------------------------------------------------------\\##

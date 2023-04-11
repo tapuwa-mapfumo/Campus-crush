@@ -68,29 +68,48 @@
         </a>
     </div>
     <div class="comment">
+    <div>
         <div class="react">
-        <i class='fab fa-facebook'>R</i>
-        </div>
+    <i class='fab fa-facebook'>R</i>
+    </div>
+    <div class="react-emojis">
+        <div>like</div><div>love</div><div>funny</div><div>sad</div><div>fire</div>
+    </div>
+    </div>
          <div class="comment_in" >
             <input type="text" placeholder="Reply" id="commentBtn">
-            <div class="reply-form" id="commentDiv">
-                <span class="close-btn" id="close_comment">
-                    X
-                </span>
-                <div><h2>Reply To Post</h2></div>
-                <div class="input-reply">
-                    <div>
-                         <span>P</span>
-                    </div>
-                   <div>
-                    <textarea name="reply-textarea" id="reply-textarea" placeholder="...wtf"></textarea>
-                   </div>
-                    <div>
-                        <button>Reply</button>
-                    </div>
-                    
+            <div class='reply-form-bg'id="commentDiv">
+       <div class="reply-form" >
+            <span class="close-btn" id="close_comment">
+                X
+            </span>
+            <div><h2>Reply To Post</h2></div>
+            <div class="post-reply">
+                <div>
+                    <?=$post['post_body'] ?>
+                </div>
+                <div style='background:inherit'>
+                @<?=$post['location'] ?> , #<?=$post['topic'] ?> 
                 </div>
             </div>
+            <form action="../classes_incs/postcomments.php" method='post'>
+            <div class="input-reply">
+                <div>
+                     <span>P</span>
+                </div>
+               <div>
+                <input type="hidden" name='post_id' value='<?= $post['post_id'] ?>'>
+                <input type="hidden" name='user_id' value='<?= $post['user_id'] ?>'>
+                <input type="hidden" name='page' value='<?= $page ?>'>
+                <textarea name="comment" id="reply-textarea" placeholder="...whats your view"></textarea>
+               </div>
+                <div>
+                    <button name="submit_comment">Reply</button>
+                </div>            
+            </div>
+            </form>
+        </div>
+       </div>
         </div> 
     </div>
         </div>
@@ -109,4 +128,29 @@
         privacy_msg.classList.toggle('privacy_msg-active');
         CC_span.classList.toggle('dot-active');
     })
+
+    //For the comment Section
+const commentBtn = document.querySelector('#commentBtn');
+const commentDiv = document.querySelector('#commentDiv');
+const closebtn_Comment = document.querySelector("#close_comment");
+const textarea_comment = document.querySelector('#reply-textarea');
+const reply_form =document.querySelector(".reply-form");
+
+commentBtn.addEventListener("click", function(){
+    commentDiv.classList.toggle('reply-form-active');
+    commentBtn.style.pointerEvents ='none';
+})
+closebtn_Comment.addEventListener('click', function(){
+    commentDiv.classList.remove('reply-form-active');
+    textarea_comment.value = '';
+    commentBtn.value = '';
+    textarea_comment.style.height = '40px';
+    commentBtn.style.pointerEvents ='all';
+})
+const react =document.querySelector('.react');
+  const react_emojis=document.querySelector('.react-emojis');
+  react.addEventListener('click', () => {
+    react_emojis.classList.toggle('react-emojis-active');
+  })
+
 </script>

@@ -183,14 +183,14 @@ a{
 .post-container{
     box-shadow: 2px 6px 10px 0px rgb(29, 28, 28);
     background-color: #201f1f;
-    height: 410px;
+    height: auto;
     max-width: 550px;
     min-width: 260px;
     margin-top: 16px;
     border-radius: 8px;
   margin-bottom: 20px;
     text-align: left;
-    
+    padding-bottom: 12px;
    }
    .post-container-comment{
     box-shadow: 2px 6px 10px 0px rgb(29, 28, 28);
@@ -280,6 +280,9 @@ a{
     height: 40px;
     display: flex;
 }
+.post-head span{
+    color: #383838;
+}
 .post_head{
     padding: 12px;
     height: auto;
@@ -320,10 +323,67 @@ a{
     transform: scale(1.1);
     transition: 0.3s ease;
 }
+.head-menu{
+    position: relative;
+    margin-left: -120px;
+    background-color: #fff;
+    border-radius: 6px;
+    background-color: #292929;
+    display: none;
+}
+.head-menu p, .head-menu button{
+    padding: 12px;
+    font-weight: 600;
+    background-color: inherit;
+    cursor: pointer;
+    color: white;
+    border: none;
+    width: 100%;
+    text-align:center;
+
+}
+.head-menu p:hover{
+    background-color: #383838;
+}
+.head-menu button:hover{
+    background-color: #383838;
+}
+.head-menu-active{
+    display: block;
+}
 .comment{
     display: grid;
     padding: 12px;
     grid-template-columns: 10% 90%;
+}
+.deal-input{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+.deal-input textarea{
+    border-radius: 32px 0px 0px 32px;
+    height: 35px;
+    border: none;
+    resize: none;
+    background-color: #242323;
+    color: wheat;
+    padding: 12px 16px;
+    width: 60%;
+
+}
+.deal-input button{
+    height: 35px;
+    border: none;
+    border-radius: 0px 32px 32px 0px;
+    width: 15%;
+    color: white;
+    font-weight: 600;
+    background-color: #880281;
+    cursor: pointer;
+}
+.deal-input textarea:focus{
+    outline: 1px solid wheat;
 }
 .react{
 text-align: center;
@@ -331,6 +391,32 @@ padding: 8px;
 background-color: #342b36;
 border-radius: 43px;
 cursor: pointer;
+}
+.react-emojis{
+    display: none;
+    position: relative;
+    top: -100px;
+    background-color: #1d1c1c;
+    padding: 12px 15px;
+    min-width: 360px;
+    left: -50px;
+    border-radius: 90px;
+    box-shadow: 0px 2px 16px 0px #1a1a1a;
+}
+.react-emojis-active{
+  display: grid; 
+  grid-template-columns: auto auto auto auto auto;
+}
+.react-emojis button{
+    border-radius: 90px;
+    padding: 12px;
+    background-color: #313131;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.react-emojis button:hover{
+    transform: scale(1.1);
+    transition: 0.3s ease;
 }
 .comment_in input{
     padding: 8px;
@@ -387,12 +473,74 @@ cursor: pointer;
     width: fit-content;
     margin-left: 20px;
     margin-top: 10px;
+    display: flex;
 }
 .comment-post{
-    border-radius: 8px;
+    border-radius: 6px;
     background-color: #2b2a2a;
-    padding: 12px;
-    font-size: 22px;
+    padding: 12px 30px;
+    font-size: 18px;
+    max-width: 100%;
+}
+.comment-post div{
+    margin-top: 10px;
+}
+.comment-post div small{
+    font-size: 14px;
+    margin-top: 10px;
+    color: green;
+    cursor: pointer;
+}
+.comments_posts div span{
+    padding: 6px;
+    margin-left: 5px;
+    box-shadow: 0px 1px 1px 0px black;
+    border-radius: 98px;
+    cursor: pointer;
+    color: #fff;
+}
+.reply_comm{
+    margin-top: 17px;
+    display: flex;
+}
+.reply_comm textarea{
+    height: 27px;
+    padding: 6px 8px;
+    border-radius: 32px 0px 0px 32px;
+    resize: none;
+    border: none;
+    backdrop-filter: blur(32px);
+    background-color: #383838;
+    outline: none;
+    font-weight: 600;
+}
+.reply_comm button{
+    border: none;
+    border-radius: 0px 32px 32px 0px;
+    padding: 6px 12px;
+    height: 27px;
+    background-color: #880281;
+    color: #fff;
+    font-weight: 600;
+
+}
+.comm_likNreply .react-emojis{
+    position: absolute;
+    margin-top: 30px;
+    height: 60px;
+    margin-left: -130px;
+    min-width: 100px;
+    box-shadow:0px 3px 5px 0px #252323;
+}
+.comm_likNreply .react-emojis div{
+    padding: 6px;
+}
+.comm_likNreply{
+    position: relative;
+    top: 40px;
+}
+.comm_likNreply span:hover{
+    transform: scale(1.1);
 }
 .comment .reply_button{
     height: 40px;
@@ -649,8 +797,11 @@ cursor: pointer;
 }
 .icons{
     position: relative;
-    top:-120px;
-    display: flex;
+    top: 30%;
+    
+}
+.icons div{
+    margin-bottom: 15px;
 }
 .profile, .settings{
     padding: 20px;
@@ -731,11 +882,11 @@ cursor: pointer;
 }
 
 
-.log-in-form{
+.log-in-form {
     position: absolute;
-    top: 120%;
+    top: -280px;
     padding: 12px;
-    left: -40%;
+    left: 0;
     background-color: #1a1a1a;
     border-radius: 6px;
     display: none;
@@ -774,9 +925,9 @@ cursor: pointer;
 }
 .sign-up-form{
     position: absolute;
-    top: 120%;
+    top: -310px;
     padding: 12px;
-    left: -40%;
+    left: 0;
     background-color: #1a1a1a;
     border-radius: 6px;
     display: none;
@@ -793,8 +944,8 @@ cursor: pointer;
 }
 .profile-menue{
     position: absolute;
-    top:120%;
-    left:-50%;
+    top:-350px;
+    left:20px;
     padding: 12px;
     background-color: #1a1a1a;
     border-radius: 6px;
@@ -833,7 +984,7 @@ cursor: pointer;
 .errormsg{
     text-align: center;
     color: red;
-    margin-top: -110px;
+    margin-top: -40px;
     position: absolute;
 }
 .locs{

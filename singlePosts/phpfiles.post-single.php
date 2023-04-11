@@ -14,7 +14,8 @@ if(!$selectPost ->execute(array($post_id))){
 #//-------------------------------------------------------------------\\##
 
 ##-------------------Posts Comments --------------------------------------##
-$selectComment = $dbh->connect()->prepare("SELECT * FROM comments WHERE post_id = ? ORDER BY date_created DESC");
+$selectComment = $dbh->connect()->prepare("SELECT username as username , comment as comment
+ FROM comments JOIN users ON users.user_id=comments.user_id WHERE post_id = ? ORDER BY date_created DESC");
 if(!$selectComment->execute(array($post_id))){
     echo 'Failed To Load Posts';
 }else{
