@@ -228,7 +228,7 @@
                 </div>
                <div>
                 <input type="hidden" name='post_id' value='<?= $post['post_id'] ?>'>
-                <input type="hidden" name='user_id' value='<?= $post['user_id'] ?>'>
+                <input type="hidden" name='user_id' value='<?= $user_id ?>'>
                 <input type="hidden" name='page' value='<?= $page ?>'>
                 <textarea name="comment" id="reply-textarea" placeholder="...whats your view"></textarea>
                </div>

@@ -78,12 +78,13 @@
          <button class='btn_reply' id="commentBtn" style="color:aliceblue">Lets Deal</button>
         </div> 
     </div>
-        <form action="#">
+        <form action="../classes_incs/linkupReplys.inc.php" method="post">
             <div class="deal-input">
                 <input type="hidden" name='post_id' value ='<?= $post['post_id'] ?>'>
-                <input type="hidden" name='user_id' value='<?= $post['user_id'] ?>'>
+                <input type="hidden" name='user_id' value='<?= $user_id ?>'>
+                <input type="hidden" name='repliedId' value='<?= $post['user_id'] ?>'>
                 <input type="hidden" name='page' value='<?= $page ?>'>
-                    <textarea type="text" name="deal" id="deal" placeholder='Are you/is this still available...'></textarea> <button>Send</button>
+                <textarea type="text" name="reply" id="deal" placeholder='Are you/is this still available...'></textarea> <button name='submit_reply'>Send </button>
                 
             </div>
         </form>
